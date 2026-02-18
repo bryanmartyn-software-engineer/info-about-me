@@ -141,12 +141,70 @@ footer {
     color: #777;
 }
 
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.skill-photo {
+    position: relative;
+    width: 160px;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+.skill-photo img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+.caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(42, 82, 152, 0.85);
+    color: white;
+    padding: 8px 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 0 0 12px 12px;
+}
+
+.skill-photo:hover .caption {
+    opacity: 1;
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 20px;
     }
 }
 </style>
+
+<script>
+  // Show alert popup on image click with info message
+  function showInfo(info) {
+    alert(info);
+  }
+</script>
+
 </head>
 
 <body>
@@ -154,7 +212,7 @@ footer {
 <div class="container">
 
     <div class="header">
-        <img src="photo-me.png" alt="Bryan Martyn" class="profile-pic">
+        <img src="photo/photo-me.png" alt="Bryan Martyn" class="profile-pic">
         <h1>Bryan Martyn</h1>
         <p>Software Engineering Student</p>
     </div>
@@ -178,15 +236,35 @@ footer {
 
     <section>
         <h2>Technical Skills</h2>
-        <div class="card">
-            <ul>
-                <li>C++</li>
-                <li>C#</li>
-                <li>Python</li>
-                <li>Unity</li>
-                <li>Godot</li>
-                <li>Software Documentation & Testing</li>
-            </ul>
+        <div class="photo-grid">
+                <div class="skill-photo" onclick="showInfo('Experienced in C++ for performance-critical applications.')">
+                <img src="photo/cpp-logo.png" alt="C++" />
+                <div class="caption">C++</div>
+            </div>
+            <div class="skill-photo" onclick="showInfo('Proficient in C# and Unity for game development.')">
+                <img src="photo/csharp-logo.png" alt="C#" />
+                <div class="caption">C#</div>
+            </div>
+            <div class="skill-photo" onclick="showInfo('Using Python for automation and scripting tasks.')">
+                <img src="photo/python-logo.jpg" alt="Python" />
+                <div class="caption">Python</div>
+            </div>
+            <div class="skill-photo" onclick="showInfo('Knowledge of PHP for web development.')">
+                <img src="photo/php-logo.png" alt="PHP" />
+                <div class="caption">PHP</div>
+            </div>
+            <div class="skill-photo" onclick="showInfo('Experience with Unity engine for 2D/3D games.')">
+                <img src="photo/unity-logo.png" alt="Unity" />
+                <div class="caption">Unity</div>
+            </div>
+            <div class="skill-photo" onclick="showInfo('Familiar with Godot engine for indie game projects.')">
+                <img src="photo/godot-logo.png" alt="Godot" />
+                <div class="caption">Godot</div>
+            </div>
+            <div class="skill-photo" onclick="showInfo('Strong skills in documentation.')">
+                <img src="photo/documentation-logo.jpg" alt="Documentation" />
+                <div class="caption">Documentation</div>
+            </div>
         </div>
     </section>
 
