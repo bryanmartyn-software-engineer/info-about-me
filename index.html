@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bryan Martyn | Portfolio</title>
+<title>Bryan Martyn | Software Engineer</title>
 
 <style>
 * {
@@ -15,285 +15,327 @@
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(-45deg, #1e3c72, #2a5298, #0f2027, #203a43);
-    background-size: 400% 400%;
-    animation: gradientBG 12s ease infinite;
-    padding: 40px 20px;
-    color: #333;
+    background: #0f0f1a;
+    color: #ffffff;
+    overflow-x: hidden;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* ===== NAVIGATION ===== */
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1001;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
-    backdrop-filter: blur(15px);
-    background: rgba(255, 255, 255, 0.9);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    animation: fadeIn 1.5s ease;
+nav {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background: #111827;
+    padding-top: 80px;
+    transition: 0.4s ease;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.5);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+nav.active {
+    right: 0;
 }
 
-.header {
+nav a {
+    display: block;
+    padding: 15px 30px;
+    color: #00f7ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background: #00f7ff;
+    color: black;
+}
+
+/* ===== HERO ===== */
+
+.hero {
     text-align: center;
-    margin-bottom: 40px;
+    padding: 120px 20px;
+    background: linear-gradient(180deg, #111827, #0f0f1a);
 }
 
 .profile-pic {
-    width: 170px;
-    height: 170px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #2a5298;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: 4px solid #00f7ff;
+    margin-bottom: 20px;
 }
 
-.profile-pic:hover {
-    transform: scale(1.08);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+.hero h1 {
+    font-size: 2.8rem;
+    color: #00f7ff;
 }
 
-h1 {
-    margin-top: 15px;
-    color: #1e3c72;
+.typing {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #aaa;
 }
 
-.header p {
-    color: #555;
-}
+/* ===== SECTIONS ===== */
 
 section {
-    margin-bottom: 30px;
+    padding: 70px 20px;
+    max-width: 1100px;
+    margin: auto;
 }
 
 h2 {
-    margin-bottom: 15px;
-    color: #2a5298;
-    position: relative;
+    margin-bottom: 30px;
+    color: #00f7ff;
+    text-align: center;
 }
 
-h2::after {
-    content: '';
-    width: 50px;
-    height: 3px;
-    background: #2a5298;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-}
+/* ===== CARDS ===== */
 
 .card {
-    background: #f8f9fc;
-    padding: 20px;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #1f2937;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    transition: 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 0 15px rgba(0,247,255,0.3);
 }
 
-ul {
-    padding-left: 20px;
-    line-height: 1.8;
+/* ===== SKILLS GRID ===== */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
 }
 
-li {
-    transition: color 0.3s ease, transform 0.3s ease;
+.skill-card {
+    background: #1f2937;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s ease;
 }
 
-li:hover {
-    color: #1e3c72;
-    transform: translateX(5px);
+.skill-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px #00f7ff;
+}
+
+/* ===== PROJECT CARDS ===== */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: #1f2937;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 4px solid #00f7ff;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(0,247,255,0.3);
+}
+
+.project-card h3 {
+    color: #00f7ff;
+}
+
+/* ===== BUTTON ===== */
 
 .button {
     display: inline-block;
-    padding: 10px 20px;
-    margin-top: 15px;
-    background: #2a5298;
-    color: white;
+    padding: 12px 25px;
+    background: #00f7ff;
+    color: black;
     text-decoration: none;
     border-radius: 25px;
-    transition: background 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    margin-top: 15px;
 }
 
 .button:hover {
-    background: #1e3c72;
-    transform: scale(1.05);
+    background: white;
 }
+
+/* ===== FOOTER ===== */
 
 footer {
     text-align: center;
-    margin-top: 40px;
-    font-size: 14px;
-    color: #777;
-}
-
-.photo-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.skill-photo {
-    position: relative;
-    width: 160px;
-    cursor: pointer;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    background: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.skill-photo:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
-}
-
-.skill-photo img {
-    width: 100%;
-    display: block;
-    border-radius: 12px;
-}
-
-.caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(42, 82, 152, 0.85);
-    color: white;
-    padding: 8px 10px;
-    font-weight: 600;
-    font-size: 1rem;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    border-radius: 0 0 12px 12px;
-}
-
-.skill-photo:hover .caption {
-    opacity: 1;
-}
-
-@media (max-width: 600px) {
-    .container {
-        padding: 20px;
-    }
+    padding: 40px;
+    background: #111827;
+    color: #aaa;
 }
 </style>
-
-<script>
-  // Show alert popup on image click with info message
-  function showInfo(info) {
-    alert(info);
-  }
-</script>
-
 </head>
 
 <body>
 
-<div class="container">
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-    <div class="header">
-        <img src="photo/photo-me.png" alt="Bryan Martyn" class="profile-pic">
-        <h1>Bryan Martyn</h1>
-        <p>Software Engineering Student</p>
-    </div>
+<nav id="nav">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    <section>
-        <h2>Profile</h2>
-        <div class="card">
-            <p>
-                I am a Software Engineering student with a strong interest in technology and 
-                continuous learning. I come from a multicultural Sabahan background 
-                (Dusun - mother’s side, Indian/Chinese - father’s side), 
-                which has shaped my open-minded perspective and adaptability.
-            </p>
-            <p style="margin-top:10px;">
-                I also undertake contract-based coding projects and technical work during spare time, 
-                focusing on delivering efficient and reliable solutions. The degree is to just to satisfy my parents.
-            </p>
-
-        </div>
-    </section>
-
-    <section>
-        <h2>Technical Skills</h2>
-        <div class="photo-grid">
-                <div class="skill-photo" onclick="showInfo('Experienced in C++ for performance-critical applications.')">
-                <img src="photo/cpp-logo.png" alt="C++" />
-                <div class="caption">C++</div>
-            </div>
-            <div class="skill-photo" onclick="showInfo('Proficient in C# and Unity for game development.')">
-                <img src="photo/csharp-logo.png" alt="C#" />
-                <div class="caption">C#</div>
-            </div>
-            <div class="skill-photo" onclick="showInfo('Using Python for automation and scripting tasks.')">
-                <img src="photo/python-logo.jpg" alt="Python" />
-                <div class="caption">Python</div>
-            </div>
-            <div class="skill-photo" onclick="showInfo('Knowledge of PHP for web development.')">
-                <img src="photo/php-logo.png" alt="PHP" />
-                <div class="caption">PHP</div>
-            </div>
-            <div class="skill-photo" onclick="showInfo('Experience with Unity engine for 2D/3D games.')">
-                <img src="photo/unity-logo.png" alt="Unity" />
-                <div class="caption">Unity</div>
-            </div>
-            <div class="skill-photo" onclick="showInfo('Familiar with Godot engine for indie game projects.')">
-                <img src="photo/godot-logo.png" alt="Godot" />
-                <div class="caption">Godot</div>
-            </div>
-            <div class="skill-photo" onclick="showInfo('Strong skills in documentation.')">
-                <img src="photo/documentation-logo.jpg" alt="Documentation" />
-                <div class="caption">Documentation</div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Interests</h2>
-        <div class="card">
-            <ul>
-                <li>Emerging Technologies</li>
-                <li>Game Development</li>
-                <li>Digital Media</li>
-                <li>Continuous Learning</li>
-            </ul>
-        </div>
-    </section>
-
-    <section>
-        <h2>Contact</h2>
-        <div class="card">
-            <p>Email: bryanmartyn@1utar.my</p>
-            <p>Phone: 018-579 8876</p>
-            <a href="https://wa.me/60185798876" class="button">Contact Me</a>
-        </div>
-    </section>
-
-    <footer>
-        © 2026 Bryan Martyn | Interactive Portfolio
-    </footer>
-
+<div class="hero">
+    <img src="photo/photo-me.png" alt="Bryan Martyn" class="profile-pic">
+    <h1>Bryan Martyn</h1>
+    <div class="typing" id="typing"></div>
 </div>
+
+<section id="about">
+    <h2>About Me</h2>
+    <div class="card">
+        Software Engineering student focused on system architecture, modular design,
+        and performance optimization.
+
+        I develop scalable applications, engineer gameplay systems in Unity (C#),
+        build workflow extensions to improve development efficiency,
+        and implement computer vision solutions using OpenCV.
+
+        My approach combines structured engineering principles with interactive system design.
+    </div>
+</section>
+
+<section id="skills">
+    <h2>Core Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <img src="photo/cpp-logo-removebg-preview.png">
+            <div>C++</div>
+        </div>
+        <div class="skill-card">
+            <img src="photo/csharp-logo-removebg-preview.png">
+            <div>C#</div>
+        </div>
+        <div class="skill-card">
+            <img src="photo/unity-logo-removebg-preview.png">
+            <div>Unity Architecture</div>
+        </div>
+        <div class="skill-card">
+            <img src="photo/godot-logo-removebg-preview.png">
+            <div>Godot</div>
+        </div>
+        <div class="skill-card">
+            <img src="photo/python-logo-removebg-preview.png">
+            <div>Python</div>
+        </div>
+        <div class="skill-card">
+            <img src="photo/php-logo-removebg-preview.png">
+            <div>PHP</div>
+        </div>
+        <div class="skill-card">
+            <img src="photo/renpy-logo-removebg-preview.png">
+            <div>RenPy Systems</div>
+        </div>
+        <div class="skill-card">
+            <img src="photo/documentation-logo-removebg-preview.png">
+            <div>Technical Documentation</div>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Selected Projects</h2>
+    <div class="project-grid">
+
+        <div class="project-card">
+            <h3>Unity Gameplay System (C#)</h3>
+            <p>
+                Designed modular state-driven gameplay architecture.
+                Implemented reusable components, structured input handling,
+                and optimized update cycles for scalable mechanics.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>Workflow Extension Toolkit</h3>
+            <p>
+                Developed custom extensions and internal tools to streamline
+                asset management, reduce repetitive processes,
+                and improve development workflow efficiency.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>Computer Vision Application (OpenCV)</h3>
+            <p>
+                Built image processing and object detection systems using OpenCV.
+                Implemented feature extraction and real-time processing pipelines.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>Story-Driven System (RenPy)</h3>
+            <p>
+                Engineered structured branching dialogue system with state tracking,
+                modular scene organization, and scalable narrative logic.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Let's Build Something</h2>
+    <div style="text-align:center;">
+        <a href="mailto:bryanmartyn@1utar.my" class="button">Contact Me</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Bryan Martyn | Software Engineer Portfolio
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("nav").classList.toggle("active");
+}
+
+const text = "Software Engineer | Systems & Interactive Applications";
+let i = 0;
+
+function typingEffect() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typingEffect, 50);
+    }
+}
+typingEffect();
+</script>
 
 </body>
 </html>
